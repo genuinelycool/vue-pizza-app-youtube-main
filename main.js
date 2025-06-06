@@ -6,7 +6,7 @@ Vue.createApp({
           id: 1,
           image: "pizza-1.png",
           name: "BISMARCK",
-          price: 30,
+          price: 50,
           calories: "800 kcal",
           fats: "50 g",
         },

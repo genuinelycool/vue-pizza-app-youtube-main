@@ -37,10 +37,10 @@
         <div class="row row-cols-4 mt-4">
           <div class="col justify-content-center text-center">
             <div class="d-flex flex-column item">
-              <img class="w-100" src="./images/pizza-1.png" alt="BISMARCK">
+              <img class="w-100" :src="`./images/${menu[0].image}`" :alt="menu[0].name">
               <div class="p-3">
-                <h5 class="item-name">BISMARCK</h5>
-                <h6 class="item-price">$30.00</h6>
+                <h5 class="item-name">{{ menu[0].name }}</h5>
+                <h6 class="item-price">${{ menu[0].price }}</h6>
                 <button type="button" class="add-cart">Add to Cart</button>
               </div>
             </div>
