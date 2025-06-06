@@ -69,15 +69,20 @@ Vue.createApp({
       ],
 
       cart: [
-        {
-          id: 1,
-          image: "pizza-1.png",
-          name: "BISMARCK",
-          price: 50,
-          calories: "800 kcal",
-          fats: "50 g",
-        }
+        
       ],
     };
+  },
+  methods: {
+    addPizza(id) {
+      const pizza = this.menu.find((pizza) => pizza.id == id);
+      const index = this.cart.findIndex((pizza) => pizza.id == id);
+
+      if (index != -1) {
+        this.cart[index].quantity++;
+      } else {
+        this.cart.push({ ...pizza, quantity: 1 });
+      }
+    },
   },
 }).mount("#pizza-restaurant");
