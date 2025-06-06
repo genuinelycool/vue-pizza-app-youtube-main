@@ -68,9 +68,7 @@ Vue.createApp({
         },
       ],
 
-      cart: [
-        
-      ],
+      cart: [],
     };
   },
   methods: {
@@ -83,6 +81,34 @@ Vue.createApp({
       } else {
         this.cart.push({ ...pizza, quantity: 1 });
       }
+    },
+
+    getTotalPrice() {
+      var total = 0;
+      this.cart.forEach((item) => {
+        total += item.price * item.quantity;
+      });
+
+      return total.toFixed(2);
+    },
+
+    reduceItem(id) {
+      var item = this.cart.find((item) => item.id == id);
+
+      if (item.quantity > 1) {
+        item.quantity--;
+      } else {
+        this.cart = this.cart.filter((item) => item.id != id);
+      }
+    },
+
+    addItem(id) {
+      var item = this.cart.find((item) => item.id == id);
+      item.quantity++;
+    },
+
+    removeItem(id) {
+      this.cart = this.cart.filter((item) => item.id != id);
     },
   },
 }).mount("#pizza-restaurant");

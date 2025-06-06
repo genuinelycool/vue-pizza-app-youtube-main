@@ -81,9 +81,17 @@
                 <h5>{{ item.name }} - ${{ item.price.toFixed(2) }}</h5>
 
                 <p>
-                  <button type="button" class="add">+</button>
+                  <button type="button" class="add" @click="addItem(item.id)">
+                    +
+                  </button>
                   {{ item.quantity }}
-                  <button type="button" class="remove">-</button>
+                  <button
+                    type="button"
+                    class="remove"
+                    @click="reduceItem(item.id)"
+                  >
+                    -
+                  </button>
                 </p>
 
                 <div class="order-item-details">
@@ -95,7 +103,13 @@
                 </div>
               </div>
 
-              <button type="button" class="remove-icon">x</button>
+              <button
+                type="button"
+                class="remove-icon"
+                @click="removeItem(item.id)"
+              >
+                x
+              </button>
             </div>
           </div>
           <div class="cart-empty" v-else>
@@ -104,7 +118,7 @@
 
           <div class="total-section">
             <h6 class="total-title">Total payment:</h6>
-            <span class="amount"> $0 </span>
+            <span class="amount"> ${{ getTotalPrice() }} </span>
           </div>
         </div>
       </div>
