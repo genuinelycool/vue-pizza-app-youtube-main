@@ -60,8 +60,10 @@
         <div class="col-3 cart p-4">
           <h3 class="title">Your Basket</h3>
 
-          <div class="order-items"></div>
-          <div class="cart-empty">
+          <div class="order-items" v-if="cart.length > 0">
+
+          </div>
+          <div class="cart-empty" v-else>
             <p class="text-center">Your basket is empty</p>
           </div>
 

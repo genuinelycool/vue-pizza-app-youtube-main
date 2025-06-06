@@ -68,7 +68,16 @@ Vue.createApp({
         },
       ],
 
-      cart: [],
+      cart: [
+        {
+          id: 1,
+          image: "pizza-1.png",
+          name: "BISMARCK",
+          price: 50,
+          calories: "800 kcal",
+          fats: "50 g",
+        }
+      ],
     };
   },
 }).mount("#pizza-restaurant");
