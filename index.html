@@ -61,7 +61,35 @@
           <h3 class="title">Your Basket</h3>
 
           <div class="order-items" v-if="cart.length > 0">
+            <div
+              class="order-item mb-4"
+              v-for="(item, index) in cart"
+              :key="index"
+            >
+              <img
+                class="order-item-image"
+                :src="`./images/${item.image}`"
+                alt="item.name"
+              />
+              <div class="order-item-content">
+                <h5>{{ item.name }} - ${{ item.price.toFixed(2) }}</h5>
 
+                <p>
+                  <button type="button" class="add">+</button>
+                  <button type="button" class="remove">-</button>
+                </p>
+
+                <div class="order-item-details">
+                  <span> <strong>Calories:</strong> {{ item.calories }} </span>
+                  <span>
+                    <strong>Squirrels:</strong> {{ item.squirrels }}
+                  </span>
+                  <span> <strong>Fats:</strong> {{ item.fats }} </span>
+                </div>
+              </div>
+
+              <button type="button" class="remove-icon">x</button>
+            </div>
           </div>
           <div class="cart-empty" v-else>
             <p class="text-center">Your basket is empty</p>
